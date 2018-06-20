@@ -31,7 +31,7 @@ endif()
 # copy CTestCustom.cmake to build dir to disable long running tests in 'make test'
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/CTestCustom.cmake ${CMAKE_CURRENT_BINARY_DIR})
 
-project(TurtleCoin)
+project(Bitminercoin)
 
 include_directories(include src external "${CMAKE_CURRENT_BINARY_DIR}/version")
 if(APPLE)
@@ -173,7 +173,6 @@ add_subdirectory(external)
 add_subdirectory(src)
 
 if(DO_TESTS)
-  add_subdirectory(tests)
 endif()
 
 ## We need to setup the RocksDB build environment to match our system
