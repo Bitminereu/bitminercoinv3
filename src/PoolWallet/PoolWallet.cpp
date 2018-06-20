@@ -1,4 +1,4 @@
-// Copyright (c) 2012-2017, The CryptoNote developers, The Bytecoin developers
+﻿// Copyright (c) 2012-2017, The CryptoNote developers, The Bytecoin developers
 //
 // This file is part of Bytecoin.
 //
@@ -1614,13 +1614,12 @@ int main(int argc, char* argv[]) {
 
   logManager.configure(buildLoggerConfiguration(logLevel, Common::ReplaceExtenstion(argv[0], ".log")));
 
-  std::cout << "TurtleCoin v" << PROJECT_VERSION << " Poolwallet" << std::endl;
+  std::cout << "BitminerCoin v" << PROJECT_VERSION << " Poolwallet" << std::endl;
 
   std::cout << "Please note that usage of simplewallet/poolwallet has been "
             << "deprecated for pool usage." << std::endl
-            << "If you are using turtle-pool, you can trivially transfer to "
-            << "walletd by following these instructions:" << std::endl
-            << "https://github.com/turtlecoin/turtle-pool/pull/5" << std::endl;
+            << "If you are using bitminer-pool, you can trivially transfer to "
+            << "walletd by following these instructions:" << std::endl;
 
   CryptoNote::Currency currency = CryptoNote::CurrencyBuilder(logManager).
     testnet(command_line::get_arg(vm, arg_testnet)).currency();
