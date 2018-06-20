@@ -119,7 +119,7 @@ add_dependencies(PoolWallet version)
 add_dependencies(P2P version)
 
 # Finally build the binaries
-set_property(TARGET Daemon PROPERTY OUTPUT_NAME "TurtleCoind")
+set_property(TARGET Daemon PROPERTY OUTPUT_NAME "Bitminercoind")
 set_property(TARGET ZedWallet PROPERTY OUTPUT_NAME "zedwallet")
 set_property(TARGET PaymentGateService PROPERTY OUTPUT_NAME "walletd")
 set_property(TARGET PoolWallet PROPERTY OUTPUT_NAME "poolwallet")
