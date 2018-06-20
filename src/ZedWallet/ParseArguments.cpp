@@ -167,7 +167,7 @@ Config parseArguments(int argc, char **argv)
 
 void versionMessage()
 {
-    std::cout << "TurtleCoin v" << PROJECT_VERSION << " Zedwallet"
+    std::cout << "BitminerCoin v" << PROJECT_VERSION << " Zedwallet"
               << std::endl;
 }
 

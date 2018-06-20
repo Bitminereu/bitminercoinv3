@@ -40,7 +40,7 @@ std::shared_ptr<WalletInfo> createViewWallet(CryptoNote::WalletGreen &wallet)
 
     while (true)
     {
-        std::cout << "Public TRTL address: ";
+        std::cout << "Public BIM address: ";
 
         std::getline(std::cin, address);
         boost::algorithm::trim(address);
@@ -448,9 +448,9 @@ void viewWalletMsg()
 {
     std::cout << InformationMsg("Please remember that when using a view wallet "
                                 "you can only view incoming transactions!")
-              << std::endl << "This means if you received 100 TRTL and then "
-              << "sent 50 TRTL, your balance would appear to still be 100 "
-              << "TRTL." << std::endl
+              << std::endl << "This means if you received 100 BIM and then "
+              << "sent 50 BIM, your balance would appear to still be 100 "
+              << "BIM." << std::endl
               << "To effectively use a view wallet, you should only deposit "
               << "to this wallet." << std::endl
               << "If you have since needed to withdraw, send your remaining "
@@ -461,7 +461,7 @@ void viewWalletMsg()
 
 void connectingMsg()
 {
-    std::cout << std::endl << "Making initial contact with TurtleCoind."
+    std::cout << std::endl << "Making initial contact with BitminerCoind."
               << std::endl
               << "Please wait, this sometimes can take a long time..."
               << std::endl << std::endl;

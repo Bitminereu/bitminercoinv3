@@ -34,7 +34,7 @@ CryptoNote::BlockDetails getBlock(uint32_t blockHeight,
 {
     CryptoNote::BlockDetails block;
 
-    /* No connection to turtlecoind */
+    /* No connection to Bitminercoind */
     if (node.getLastKnownBlockHeight() == 0)
     {
         return block;
@@ -101,7 +101,7 @@ void printOutgoingTransfer(CryptoNote::WalletTransaction t,
     {
         std::string blockTime = getBlockTimestamp(getBlock(t.blockHeight, node));
 
-        /* Couldn't get timestamp, maybe old node or turtlecoind closed */
+        /* Couldn't get timestamp, maybe old node or Bitminercoind closed */
         if (blockTime != "")
         {
             std::cout << WarningMsg("Timestamp: " + blockTime) << std::endl;
@@ -133,7 +133,7 @@ void printIncomingTransfer(CryptoNote::WalletTransaction t,
     {
         std::string blockTime = getBlockTimestamp(getBlock(t.blockHeight, node));
 
-        /* Couldn't get timestamp, maybe old node or turtlecoind closed */
+        /* Couldn't get timestamp, maybe old node or Bitminercoind closed */
         if (blockTime != "")
         {
             std::cout << SuccessMsg("Timestamp: " + blockTime) << std::endl;
@@ -215,7 +215,7 @@ void saveCSV(CryptoNote::WalletGreen &wallet, CryptoNote::INode &node)
             /* Handle outgoing (negative) or incoming transactions */
             if (t.totalAmount < 0)
             {
-                /* Put TRTL in separate field, makes output more usable in spreadsheet */
+                /* Put BIM in separate field, makes output more usable in spreadsheet */
                 std::string splitAmtTRTL = formatAmount(-t.totalAmount);
                 boost::replace_all(splitAmtTRTL, " ", ",");
                 myfile << "-" << splitAmtTRTL << ",OUT\n";
@@ -282,7 +282,7 @@ void syncWallet(CryptoNote::INode &node,
 
     if (localHeight != remoteHeight)
     {
-        std::cout << "Your TurtleCoind isn't fully synced yet!" << std::endl
+        std::cout << "Your BitminerCoind isn't fully synced yet!" << std::endl
                   << "Until you are fully synced, you won't be able to send "
                   << "transactions,"
                   << std::endl
@@ -353,9 +353,9 @@ void syncWallet(CryptoNote::INode &node,
             if (stuckCounter > 20)
             {
                 std::string warning =
-                    "Syncing may be stuck. Try restarting Turtlecoind.\n"
+                    "Syncing may be stuck. Try restarting Bitminercoind.\n"
                     "If this persists, visit "
-                    "https://turtlecoin.lol/#contact for support.";
+                    "http://bitminercoin.org/#contact for support.";
                 std::cout << WarningMsg(warning) << std::endl;
             }
             else if (stuckCounter > 19)
@@ -442,5 +442,5 @@ ColouredMsg getPrompt(std::shared_ptr<WalletInfo> &walletInfo)
 
     std::string shortName = walletName.substr(0, promptLength);
 
-    return InformationMsg("[TRTL " + shortName + "]: ");
+    return InformationMsg("[BIM " + shortName + "]: ");
 }

@@ -85,7 +85,7 @@ void help(bool viewWallet)
               << SuccessMsg("bc_height", 25)
               << "Show the blockchain height" << std::endl
               << SuccessMsg("balance", 25)
-              << "Display how much TRTL you have" << std::endl
+              << "Display how much BIM you have" << std::endl
               << SuccessMsg("export_keys", 25)
               << "Export your private keys" << std::endl
               << SuccessMsg("address", 25)
@@ -102,7 +102,7 @@ void help(bool viewWallet)
     if (viewWallet)
     {
         std::cout << InformationMsg("Please note you are using a view only "
-                                    "wallet, and so cannot transfer TRTL.")
+                                    "wallet, and so cannot transfer BIM.")
                   << std::endl;
     }
     else
@@ -117,7 +117,7 @@ void help(bool viewWallet)
                   << "Optimize your wallet to send large amounts"
                   << std::endl
                   << SuccessMsg("transfer", 25)
-                  << "Send TRTL to someone" << std::endl;
+                  << "Send BIM to someone" << std::endl;
     }
 }
 
@@ -213,7 +213,7 @@ void blockchainHeight(CryptoNote::INode &node, CryptoNote::WalletGreen &wallet)
     if (localHeight == 0 && remoteHeight == 0)
     {
         std::cout << WarningMsg("Uh oh, it looks like you don't have "
-                                "TurtleCoind open!")
+                                "BitminerCoind open!")
                   << std::endl;
     }
     else if (walletHeight + 1000 < remoteHeight && localHeight == remoteHeight)

@@ -238,8 +238,8 @@ void splitTx(CryptoNote::WalletGreen &wallet,
                  (std::ceil(double(txSize) / double(maxSize))));
 
         /* Split the requested fee over each transaction, i.e. if a fee of 200
-           TRTL was requested and we split it into 4 transactions each one will
-           have a fee of 5 TRTL. If the fee per transaction is less than the
+           BIM was requested and we split it into 4 transactions each one will
+           have a fee of 5 BIM. If the fee per transaction is less than the
            min fee, use the min fee. */
         uint64_t feePerTx = std::max (p.fee / numTransactions, minFee);
 
@@ -459,7 +459,6 @@ void doTransfer(std::string address, uint64_t amount, uint64_t fee,
                 case WalletErrors::CryptoNote::error::WRONG_AMOUNT:
                 {
                     wrongAmount = true;
-                    [[fallthrough]];
                 }
                 case WalletErrors::CryptoNote::error::MIXIN_COUNT_TOO_BIG:
                 case NodeErrors::CryptoNote::error::INTERNAL_NODE_ERROR:
@@ -511,7 +510,7 @@ void doTransfer(std::string address, uint64_t amount, uint64_t fee,
                     std::cout << WarningMsg("Couldn't connect to the network "
                                             "to send the transaction!")
                               << std::endl
-                              << "Ensure TurtleCoind or the remote node you "
+                              << "Ensure BitminerCoind or the remote node you "
                               << "are using is open and functioning."
                               << std::endl;
                     break;
@@ -644,7 +643,7 @@ Maybe<uint64_t> getTransferAmount()
         std::string stringAmount;
 
         std::cout << std::endl
-                  << InformationMsg("How much TRTL do you want to send?: ");
+                  << InformationMsg("How much BIM do you want to send?: ");
 
         std::getline(std::cin, stringAmount);
 
@@ -703,7 +702,7 @@ bool parseFee(std::string feeString)
     }
     else if (fee < CryptoNote::parameters::MINIMUM_FEE)
     {
-        std::cout << WarningMsg("Fee must be at least 0.1 TRTL!") << std::endl;
+        std::cout << WarningMsg("Fee must be at least 0.1 BIM!") << std::endl;
         return false;
     }
 
@@ -747,11 +746,11 @@ bool parseAddress(std::string address)
     }
     /* We can't get the actual prefix if the address is invalid for other
        reasons. To work around this, we can just check that the address starts
-       with TRTL, aslong as the prefix is the TRTL prefix. This keeps it
+       with BIM, aslong as the prefix is the BIM prefix. This keeps it
        working on testnets with different prefixes. */
-    else if (expectedPrefix == 3914525 && address.substr(0, 4) != "TRTL")
+    else if (expectedPrefix == 3914525 && address.substr(0, 4) != "BIM")
     {
-        std::cout << WarningMsg("Invalid address! It should start with TRTL!")
+        std::cout << WarningMsg("Invalid address! It should start with BIM!")
                   << std::endl << std::endl;
         return false;
     }
@@ -760,7 +759,7 @@ bool parseAddress(std::string address)
     else if (!valid)
     {
         std::cout << WarningMsg("Failed to parse address, address is not a "
-                                "valid TRTL address!") << std::endl
+                                "valid BIM address!") << std::endl
                   << std::endl;
         return false;
     }
@@ -777,7 +776,7 @@ bool parseAmount(std::string amountString)
         std::cout << WarningMsg("Failed to parse amount! Ensure you entered "
                                 "the value correctly.")
                   << std::endl
-                  << "Please note, the minimum you can send is 0.01 TRTL,"
+                  << "Please note, the minimum you can send is 0.01 BIM,"
                   << std::endl
                   << "and you can only use 2 decimal places."
                   << std::endl;

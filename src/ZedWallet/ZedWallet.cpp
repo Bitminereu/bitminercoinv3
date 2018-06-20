@@ -64,7 +64,7 @@ int main(int argc, char **argv)
     System::Dispatcher localDispatcher;
     System::Dispatcher *dispatcher = &localDispatcher;
 
-    /* Our connection to turtlecoind */
+    /* Our connection to bitminercoind */
     std::unique_ptr<CryptoNote::INode> node(
         new CryptoNote::NodeRpcProxy(config.host, config.port, 
                                      logger.getLogger()));
@@ -123,7 +123,7 @@ void run(CryptoNote::WalletGreen &wallet, CryptoNote::INode &node,
 
     do
     {
-        std::cout << InformationMsg("TurtleCoin v"
+        std::cout << InformationMsg("BitminerCoin v"
                                   + std::string(PROJECT_VERSION)
                                   + " Zedwallet") << std::endl;
 
@@ -150,15 +150,15 @@ void run(CryptoNote::WalletGreen &wallet, CryptoNote::INode &node,
 
     while (node.getLastKnownBlockHeight() == 0)
     {
-        std::cout << WarningMsg("It looks like TurtleCoind isn't open!")
+        std::cout << WarningMsg("It looks like BitminerCoind isn't open!")
                   << std::endl << std::endl
-                  << WarningMsg("Ensure TurtleCoind is open and has finished "
+                  << WarningMsg("Ensure BitminerCoind is open and has finished "
                                 "initializing.")
                   << std::endl
                   << WarningMsg("If it's still not working, try restarting "
-                                "TurtleCoind. The daemon sometimes gets stuck.") 
+                                "BitminerCoind. The daemon sometimes gets stuck.") 
                   << std::endl
-                  << WarningMsg("Alternatively, perhaps TurtleCoind can't "
+                  << WarningMsg("Alternatively, perhaps BitminerCoind can't "
                                 "communicate with any peers.")
                   << std::endl << std::endl
                   << WarningMsg("The wallet can't function until it can "
@@ -390,7 +390,7 @@ bool shutdown(CryptoNote::WalletGreen &wallet, CryptoNote::INode &node,
 {
     if (alreadyShuttingDown)
     {
-        std::cout << "Patience little turtle, we're already shutting down!" 
+        std::cout << "Patience little Bitminer, we're already shutting down!" 
                   << std::endl;
         return false;
     }
