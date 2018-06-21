@@ -623,6 +623,21 @@ struct F_COMMAND_RPC_GET_BLOCK_DETAILS {
     }
   };
 };
+	
+//-----------------------------------------------
+struct COMMAND_RPC_GET_PEER_LIST {
+	typedef EMPTY_STRUCT request;
+
+	struct response {
+		std::vector<std::string> peers;
+		std::string status;
+
+		void serialize(ISerializer &s) {
+			KV_MEMBER(peers)
+			KV_MEMBER(status)
+		}
+	};
+};
 
 struct F_COMMAND_RPC_GET_TRANSACTION_DETAILS {
   struct request {
