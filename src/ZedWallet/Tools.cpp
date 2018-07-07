@@ -47,8 +47,8 @@ void confirmPassword(std::string walletPass)
 
 std::string formatAmount(uint64_t amount)
 {
-    uint64_t dollars = amount / 100;
-    uint64_t cents = amount % 100;
+    uint64_t dollars = amount / 100000000;
+    uint64_t cents = amount % 100000000;
 
     return formatDollars(dollars) + "." + formatCents(cents) + " BIM";
 }
@@ -105,7 +105,7 @@ std::string formatDollars(uint64_t amount)
 std::string formatCents(uint64_t amount)
 {
     std::stringstream stream;
-    stream << std::setfill('0') << std::setw(2) << amount;
+    stream << std::setfill('0') << std::setw(8) << amount;
     return stream.str();
 }
 
