@@ -162,8 +162,8 @@ const char     P2P_STAT_TRUSTED_PUB_KEY[]                    = "";
 
 const char* const SEED_NODES[] = {
   "bitminercoin.org:11976",
-  "bitminercoin.org:10976",
+  "128.199.65.135:11976",
   "bim.youpool.io:11976",
-   "206.189.17.87:11976"
+   "207.154.247.3:11976"
 };
 } // CryptoNote
